@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/common.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      <% if(errMsg) { %>
+        <p class="err-msg"><%=errMsg%></p>
+      <% } %>
+      <div>
+        <a href="/auth/github">Github</a>
+      </div>
+      <div>
+        <a href="/auth/google">Google</a>
+      </div>
+    </div>
+  </body>
+</html>
