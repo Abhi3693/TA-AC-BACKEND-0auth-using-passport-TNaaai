@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/articleDetails.css">
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+      <% if(error) { %>
+        <p class="errMsg"><%=error%></p>
+      <% } %>
+    <% if(article) { %>
+      <h2 class="title"><%= article.title %></h2>
+      <h2 class="author"><%= article.author.username %></h2>
+      <h2 class="slug"><%= article.author.email %></h2>
+      <div class="like-holder">
+        <a class="btn edit" href="/articles/<%=article._id%>/edit">Edit</a>
+        <a class="btn delete" href="/articles/<%=article._id%>/delete">Delete</a>
+      </div>
+      <a href="/logout">logout</a>
+      <a href="/articles">all articles</a>
+
+      <div class="comment-holder">
+        <form action="/articles/<%= article.slug %>/comment" method="POST">
+          <textarea name="text" id="" cols="30" rows="5" placeholder="Enter Comments"></textarea>
+          <input type="submit" value="Add Comment">
+        </form>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html> 
